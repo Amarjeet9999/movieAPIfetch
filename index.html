@@ -1,0 +1,62 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>My Movie Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="movieContainer">
+        <h1
+          style="
+            text-align: center;
+            margin-top: 2%;
+            font-size: 45px;
+            color: white;
+            margin-bottom: 2%;
+          "
+          >Search Movie</h1
+        >
+        <input type="text" id="movieNameInp" />
+        <div style="display: flex; width: 40%; margin: auto; margin-top: 1%">
+          <button id="searchMovie" class="searchMovie" onclick="movieFetch()"
+            >Search Movie</button
+          >
+          <button onclick="searchAMovie()" class="searchMovie" id="searchAMovie"
+            >Search Another Movie</button
+          >
+        </div>
+        <div class="movieDIV" id="movieDiv">
+          <div class="mainMovie" id="mainMovie">
+            <div class="imageTab">
+              <img id="mainMovieimg" src="" />
+            </div>
+            <div id="information">
+              <div id="title"><h1 id="tileH1"></h1></div>
+              <div id="director"></div>
+              <div id="language"></div>
+              <div id="released"></div>
+              <div id="stars"><span id="actor1"></span></div>
+              <div id="awards"><span></span></div>
+              <div id="country"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="newOps" id="newOps">
+      <img
+        src="https://cdn.dribbble.com/users/898770/screenshots/3744292/search-bar.gif"
+      />
+      <button onclick="searchAMovie2()" id="searchMovie2"
+        >Search Another Movie</button
+      >
+    </div>
+  </body>
+</html>
+<script src="index.js"></script>
+
+<style></style>
