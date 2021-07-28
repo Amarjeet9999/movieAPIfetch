@@ -9,7 +9,8 @@ async function movieFetch() {
     let data = await res.json();
     if (data.Response !== "False") {
       showMovies(data);
-      console.log(data);
+      console.log(data.Ratings[0].Value);
+      showRecommended(data);
     } else {
       openunsearch();
     }
@@ -23,6 +24,8 @@ function showMovies(el) {
   image.src = el.Poster;
   let tileH1 = document.getElementById("tileH1");
   tileH1.innerText = el.Title;
+  let rating = document.getElementById("rating");
+  rating.innerText = `Ratings : ${el.Ratings[0].Value}`;
   let director = document.getElementById("director");
   director.innerText = `Director : ${el.Director}`;
   let language = document.getElementById("language");
@@ -51,4 +54,19 @@ function searchAMovie2() {
   document.getElementById("newOps").style.display = "none";
   document.getElementById("movieNameInp").value = null;
   document.getElementById("movieNameInp").focus();
+}
+
+function showRecommended(el) {
+  let recommended = document.getElementById("recommended");
+  let data = el.Ratings[0].Value;
+  let res = "";
+  for (var i = 0; i < data.length; i++) {
+    res += data[i];
+    if (data[i + 1] == "/") {
+      break;
+    }
+  }
+  if (Number(res) > 8.5) {
+    recommended.style.display = "block";
+  }
 }
